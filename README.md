@@ -1,8 +1,8 @@
 # create-webpack-slim
 
-快速创建一个简单的webpack app
+Quickly create a simple webpack app
 
-## 使用方法
+## Usage
 
 ```
 npx create-webpack-slim my-app
@@ -11,20 +11,20 @@ yarn install
 yarn start
 ```
 
-## 包含配置
+## Content
 
-- 开发环境 `webpack.config.dev.js`
+- dev config `webpack.config.dev.js`
 - - babel
 - - css module
 - - html template
 - - devServer
 
-- 生产环境 `webpack.config.prod.js`
+- prod config `webpack.config.prod.js`
 - - css extract
 - - hash8 filename
 - - copy public
 - - split chunks
 
-> 你可以修改`webpack.config.prod.js`中`output.publicPath`配置来配置静态资源的url前缀
+> You can modify the `output.publicPath` configuration in `webpack.config.prod.js` to set the url prefix for static resources.
 
 Happy coding!
