@@ -1,25 +1,25 @@
 {
-  "name": "create-webpack-slim",
-  "version": "1.0.0",
-  "description": "basic config to create webpack frontend app slim",
-  "bin": {
-    "create-webpack-slim": "./index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IanYet/create-webpack-slim.git"
-  },
-  "keywords": [
-    "webpack"
-  ],
-  "author": "Ian Ye",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/IanYet/create-webpack-slim/issues"
-  },
-  "homepage": "https://github.com/IanYet/create-webpack-slim#readme",
-  "dependencies": {
-    "commander": "^6.0.0",
-    "shelljs": "^0.8.4"
-  }
+    "name": "create-webpack-slim",
+    "version": "1.0.0",
+    "description": "basic config to create webpack frontend app slim",
+    "bin": {
+        "create-webpack-slim": "./index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IanYet/create-webpack-slim.git"
+    },
+    "keywords": [
+        "webpack"
+    ],
+    "author": "Ian Ye",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/IanYet/create-webpack-slim/issues"
+    },
+    "homepage": "https://github.com/IanYet/create-webpack-slim#readme",
+    "dependencies": {
+        "commander": "^6.0.0",
+        "shelljs": "^0.8.4"
+    }
 }
