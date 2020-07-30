@@ -2,7 +2,6 @@
 const { program } = require('commander')
 const { version, description } = require('./package.json')
 const fs = require('fs')
-const { dir } = require('console')
 const fsp = fs.promises
 
 const l = console.log
