@@ -2,7 +2,7 @@
 
 快速创建一个简单的webpack app
 
-##使用方法
+## 使用方法
 
 ```
 npx create-webpack-slim my-app
@@ -11,7 +11,7 @@ yarn install
 yarn start
 ```
 
-##包含配置
+## 包含配置
 
 - 开发环境 `webpack.config.dev.js`
 - - babel
