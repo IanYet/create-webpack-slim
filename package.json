@@ -1,13 +1,13 @@
 {
-  "name": "create-webpack-demo",
+  "name": "create-webpack-slim",
   "version": "1.0.0",
-  "description": "basic config to create webpack frontend app demo",
+  "description": "basic config to create webpack frontend app slim",
   "bin": {
-    "create-webpack-demo": "./index.js"
+    "create-webpack-slim": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IanYet/create-webpack-demo.git"
+    "url": "git+https://github.com/IanYet/create-webpack-slim.git"
   },
   "keywords": [
     "webpack"
@@ -15,9 +15,9 @@
   "author": "Ian Ye",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IanYet/create-webpack-demo/issues"
+    "url": "https://github.com/IanYet/create-webpack-slim/issues"
   },
-  "homepage": "https://github.com/IanYet/create-webpack-demo#readme",
+  "homepage": "https://github.com/IanYet/create-webpack-slim#readme",
   "dependencies": {
     "commander": "^6.0.0"
   }
