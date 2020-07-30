@@ -1,6 +1,6 @@
 {
     "name": "create-webpack-slim",
-    "version": "1.2.2",
+    "version": "1.2.5",
     "description": "basic config to create webpack frontend app slim",
     "bin": {
         "create-webpack-slim": "./index.js"
@@ -9,6 +9,11 @@
         "type": "git",
         "url": "git+https://github.com/IanYet/create-webpack-slim.git"
     },
+    "files": [
+        "index.js",
+        "yarn.lock",
+        "/source"
+    ],
     "keywords": [
         "webpack"
     ],

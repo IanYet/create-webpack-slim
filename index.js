@@ -37,13 +37,20 @@ const createProject = (path) => {
 
             dirs.forEach((dir) => {
                 if (dir.isFile()) {
+                    let tempName
+                    if (dir.name === '.npmignore') tempName = '.gitignore'
+
                     all.push(
                         fsp.copyFile(
                             srcPath + splitSign + dir.name,
-                            tarPath + splitSign + dir.name
+                            tarPath + splitSign + tempName || dir.name
                         )
                     )
-                    l(`${processEmoji()}\x1B[2mmake file, ${dir.name}\x1B[0m`)
+                    l(
+                        `${processEmoji()}\x1B[2mmake file, ${
+                            tempName || dir.name
+                        }\x1B[0m`
+                    )
                 } else {
                     all.unshift(dir)
                 }
@@ -102,9 +109,7 @@ const createProject = (path) => {
             l(
                 `${bs4}Success! Created \x1B[32m${path}\x1B[0m at \x1B[32m${tarPath}\x1B[0m`
             )
-            l(
-                `${bs4}Inside that directory, you can run several commands:\n`
-            )
+            l(`${bs4}Inside that directory, you can run several commands:\n`)
             l(`${tipsEmoji}\x1B[36myarn install\x1B[0m`)
             l(`${bs4}${bs4}${bs2}Install dependencies.\n`)
             l(`${tipsEmoji}\x1B[36myarn start\x1B[0m`)
