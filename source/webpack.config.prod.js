@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './index.js',
@@ -84,11 +85,16 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+                { from: 'public', to: './' }
+              ],
+        }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash:8].css',
         }),
         new HtmlWebpackPlugin({
-            title: 'Vark',
+            title: 'webpack slim',
             template: __dirname + '/public/index.html',
             favicon: __dirname + '/public/favicon.ico',
         }),

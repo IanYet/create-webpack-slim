@@ -87,7 +87,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: 'room demo',
+            title: 'webpack slim',
             template: __dirname + '/public/index.html',
             favicon: __dirname + '/public/favicon.ico',
         }),
