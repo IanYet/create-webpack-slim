@@ -88,9 +88,9 @@ const createProject = (path) => {
                         )
                     )
                     l(
-                        `${processEmoji()}\x1B[2mmake file, ${pa.name}${splitSign}${
-                            file.name
-                        }\x1B[0m`
+                        `${processEmoji()}\x1B[2mmake file, ${
+                            pa.name
+                        }${splitSign}${file.name}\x1B[0m`
                     )
                 })
             })
@@ -99,9 +99,25 @@ const createProject = (path) => {
         })
         .then(() => {
             l(`\n${doneEmoji}Done!\n`)
-            l(`${tipsEmoji}${bs2}\x1B[36myarn install\x1B[0m${bs4}to install dependencies.\n`)
-            l(`${tipsEmoji}${bs2}\x1B[36myarn start  \x1B[0m${bs4}to start dev server.\n`)
-            l(`${tipsEmoji}${bs2}\x1B[36myarn build  \x1B[0m${bs4}to build project.\n`)
+            l(
+                `${bs4}Success! Created \x1B[32m${path}\x1B[0m at \x1B[32m${tarPath}\x1B[0m`
+            )
+            l(
+                `${bs4}Inside that directory, you can run several commands:\n`
+            )
+            l(`${tipsEmoji}\x1B[36myarn install\x1B[0m`)
+            l(`${bs4}${bs4}${bs2}Install dependencies.\n`)
+            l(`${tipsEmoji}\x1B[36myarn start\x1B[0m`)
+            l(`${bs4}${bs4}${bs2}Starts the development server.\n`)
+            l(`${tipsEmoji}\x1B[36myarn build\x1B[0m`)
+            l(
+                `${bs4}${bs4}${bs2}Bundles the app into static files for production.\n`
+            )
+            l(`${bs4}We suggest that you begin by typing:\n`)
+            l(`${bs4}${bs2}\x1B[36mcd ${path}\x1B[0m`)
+            l(`${bs4}${bs2}\x1B[36myarn install\x1B[0m`)
+            l(`${bs4}${bs2}\x1B[36myarn start\x1B[0m\n`)
+            l(`${bs4}\x1B[33mHappy Coding!\x1B[0m\n`)
         })
         .catch((err) => {
             l(`${errorEmoji}${err.message}.\n`) ///g

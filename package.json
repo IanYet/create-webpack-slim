@@ -1,6 +1,6 @@
 {
     "name": "create-webpack-slim",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "basic config to create webpack frontend app slim",
     "bin": {
         "create-webpack-slim": "./index.js"

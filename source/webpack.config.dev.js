@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './index.js',
     mode: 'development',
     output: {
         filename: 'js/[name].js',
@@ -30,7 +30,7 @@ module.exports = {
                         }
                     }
                 ],
-                include: __dirname + '/src'
+                exclude: /node_modules/,
             },
             {
                 test: /(?<!\.module)\.css$/,
@@ -38,7 +38,7 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ],
-                include: __dirname + '/src'
+                exclude: /node_modules/,
             },
             {
                 test: /\.(png|jpg|gif|svg)$/i,
@@ -78,11 +78,11 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx'],
     },
-    stats: 'errors-only',
     devServer: {
         contentBase: path.join(__dirname, 'public/'),
         port: 3000,
-        publicPath: 'http://localhost:3000/'
+        publicPath: 'http://localhost:3000/',
+        stats: 'errors-only',
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
