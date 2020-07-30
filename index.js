@@ -25,7 +25,7 @@ const createProject = (path) => {
             })
         })
         .catch((err) => {
-            l(`😔: ${err.message}.\n`)
+            l(`😔: ${err.message}.\n`)///g
         })
 }
 
