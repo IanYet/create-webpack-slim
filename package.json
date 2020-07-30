@@ -1,0 +1,24 @@
+{
+  "name": "create-webpack-demo",
+  "version": "1.0.0",
+  "description": "basic config to create webpack frontend app demo",
+  "bin": {
+    "create-webpack-demo": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanYet/create-webpack-demo.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Ian Ye",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IanYet/create-webpack-demo/issues"
+  },
+  "homepage": "https://github.com/IanYet/create-webpack-demo#readme",
+  "dependencies": {
+    "commander": "^6.0.0"
+  }
+}
