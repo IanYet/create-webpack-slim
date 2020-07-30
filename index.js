@@ -6,9 +6,17 @@ const fsp = fs.promises
 
 const l = console.log
 const splitSign = '/'
+const bs4 = '    '
+const bs2 = '  '
+const startEmoji = `${bs4}💫${bs2}`
+const processEmoji = () =>
+    [`${bs4}🌎${bs2}`, `${bs4}🌍${bs2}`, `${bs4}🌏${bs2}`][Date.now() % 3]
+const doneEmoji = `${bs4}✨${bs2}`
+const errorEmoji = `${bs4}🌀${bs2}`
+const tipsEmoji = `${bs4}💡${bs2}`
 
 const createProject = (path) => {
-    l('\n🏁: Start!\n')
+    l(`\n${startEmoji}Start\n`)
 
     const tarPath = process.cwd() + splitSign + path
     const srcPath = __dirname + splitSign + 'source'
@@ -16,12 +24,13 @@ const createProject = (path) => {
     const version = Number(process.version.substr(1).split('.')[0])
     if (version < 12) {
         l(
-            '😔: Sorry, but your node verison is less than 12, please update node.\n'
+            `${errorEmoji}Sorry, but your node verison is less than 12, please update node.\n`
         )
         return
     }
 
-    fsp.mkdir(tarPath)
+    return fsp
+        .mkdir(tarPath)
         .then(() => fsp.readdir(srcPath, { withFileTypes: true }))
         .then((dirs) => {
             const all = []
@@ -34,6 +43,7 @@ const createProject = (path) => {
                             tarPath + splitSign + dir.name
                         )
                     )
+                    l(`${processEmoji()}\x1B[2mmake file, ${dir.name}\x1B[0m`)
                 } else {
                     all.unshift(dir)
                 }
@@ -70,20 +80,31 @@ const createProject = (path) => {
                 const src = srcPath + splitSign + pa.name
                 const subs = dirs[idx]
 
-                subs.forEach((file) =>
+                subs.forEach((file) => {
                     all.push(
                         fsp.copyFile(
                             src + splitSign + file.name,
                             tar + splitSign + file.name
                         )
                     )
-                )
+                    l(
+                        `${processEmoji()}\x1B[2mmake file, ${pa.name}${splitSign}${
+                            file.name
+                        }\x1B[0m`
+                    )
+                })
             })
 
             return Promise.all(all)
         })
+        .then(() => {
+            l(`\n${doneEmoji}Done!\n`)
+            l(`${tipsEmoji}${bs2}\x1B[36myarn install\x1B[0m${bs4}to install dependencies.\n`)
+            l(`${tipsEmoji}${bs2}\x1B[36myarn start  \x1B[0m${bs4}to start dev server.\n`)
+            l(`${tipsEmoji}${bs2}\x1B[36myarn build  \x1B[0m${bs4}to build project.\n`)
+        })
         .catch((err) => {
-            l(`😔: ${err.message}.\n`) ///g
+            l(`${errorEmoji}${err.message}.\n`) ///g
         })
 }
 

@@ -56,7 +56,7 @@ module.exports = {
     },
     devtool: 'source-map',
     performance: {
-        hints: false // 取消静态文件超过250kb的警告
+        hints: false 
     },
     optimization: {
         runtimeChunk: {

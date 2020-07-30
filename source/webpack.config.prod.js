@@ -59,7 +59,7 @@ module.exports = {
         ],
     },
     performance: {
-        hints: false, // 取消静态文件超过250kb的警告
+        hints: false,
     },
     stats: 'errors-only',
     resolve: {

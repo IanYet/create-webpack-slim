@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/IanYet/create-webpack-slim#readme",
   "dependencies": {
-    "commander": "^6.0.0"
+    "commander": "^6.0.0",
+    "shelljs": "^0.8.4"
   }
 }
