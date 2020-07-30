@@ -1,2 +1,3 @@
-# create-webpack-demo
-create webpack frontend app demo
+# create-webpack-slim
+
+create webpack frontend app quickly
