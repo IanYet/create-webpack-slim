@@ -2,10 +2,11 @@
 const { program } = require('commander')
 const { version, description } = require('./package.json')
 const fs = require('fs')
+const os = require('os')
 const fsp = fs.promises
 
 const l = console.log
-const splitSign = '/'
+const s = os.platform === 'win32'?'\\':'/'
 const bs4 = '    '
 const bs2 = '  '
 const startEmoji = `${bs4}💫${bs2}`
@@ -18,8 +19,8 @@ const tipsEmoji = `${bs4}💡${bs2}`
 const createProject = (path) => {
     l(`\n${startEmoji}Start\n`)
 
-    const tarPath = process.cwd() + splitSign + path
-    const srcPath = __dirname + splitSign + 'source'
+    const tarPath = process.cwd() + s + path
+    const srcPath = __dirname + s + 'source'
 
     const version = Number(process.version.substr(1).split('.')[0])
     if (version < 12) {
@@ -42,8 +43,8 @@ const createProject = (path) => {
 
                     all.push(
                         fsp.copyFile(
-                            srcPath + splitSign + dir.name,
-                            tarPath + splitSign + tempName || dir.name
+                            srcPath + s + dir.name,
+                            tarPath + s + tempName || dir.name
                         )
                     )
                     l(
@@ -63,7 +64,7 @@ const createProject = (path) => {
                 ...dirs
                     .filter((dir) => dir && dir.isDirectory())
                     .map((dir) =>
-                        fsp.readdir(srcPath + splitSign + dir.name, {
+                        fsp.readdir(srcPath + s + dir.name, {
                             withFileTypes: true,
                         })
                     ),
@@ -74,7 +75,7 @@ const createProject = (path) => {
             const ds = dirs[dirs.length - 1]
 
             ds.filter((d) => d).forEach((d) =>
-                fsp.mkdir(tarPath + splitSign + d.name)
+                fsp.mkdir(tarPath + s + d.name)
             )
             return dirs
         })
@@ -83,21 +84,21 @@ const createProject = (path) => {
             const pas = dirs.pop()
 
             pas.filter((pa) => pa).forEach((pa, idx) => {
-                const tar = tarPath + splitSign + pa.name
-                const src = srcPath + splitSign + pa.name
+                const tar = tarPath + s + pa.name
+                const src = srcPath + s + pa.name
                 const subs = dirs[idx]
 
                 subs.forEach((file) => {
                     all.push(
                         fsp.copyFile(
-                            src + splitSign + file.name,
-                            tar + splitSign + file.name
+                            src + s + file.name,
+                            tar + s + file.name
                         )
                     )
                     l(
                         `${processEmoji()}\x1B[2mmake file, ${
                             pa.name
-                        }${splitSign}${file.name}\x1B[0m`
+                        }${s}${file.name}\x1B[0m`
                     )
                 })
             })
