@@ -6,7 +6,7 @@ const os = require('os')
 const fsp = fs.promises
 
 const l = console.log
-const s = os.platform === 'win32'?'\\':'/'
+const s = os.platform === 'win32' ? '\\' : '/'
 const bs4 = '    '
 const bs2 = '  '
 const startEmoji = `${bs4}💫${bs2}`
@@ -44,7 +44,7 @@ const createProject = (path) => {
                     all.push(
                         fsp.copyFile(
                             srcPath + s + dir.name,
-                            tarPath + s + tempName || dir.name
+                            tarPath + s + (tempName || dir.name)
                         )
                     )
                     l(
@@ -74,9 +74,7 @@ const createProject = (path) => {
         .then((dirs) => {
             const ds = dirs[dirs.length - 1]
 
-            ds.filter((d) => d).forEach((d) =>
-                fsp.mkdir(tarPath + s + d.name)
-            )
+            ds.filter((d) => d).forEach((d) => fsp.mkdir(tarPath + s + d.name))
             return dirs
         })
         .then((dirs) => {
@@ -90,15 +88,12 @@ const createProject = (path) => {
 
                 subs.forEach((file) => {
                     all.push(
-                        fsp.copyFile(
-                            src + s + file.name,
-                            tar + s + file.name
-                        )
+                        fsp.copyFile(src + s + file.name, tar + s + file.name)
                     )
                     l(
-                        `${processEmoji()}\x1B[2mmake file, ${
-                            pa.name
-                        }${s}${file.name}\x1B[0m`
+                        `${processEmoji()}\x1B[2mmake file, ${pa.name}${s}${
+                            file.name
+                        }\x1B[0m`
                     )
                 })
             })
