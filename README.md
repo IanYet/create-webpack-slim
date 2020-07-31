@@ -1,6 +1,6 @@
 # create-webpack-slim
 
-!()[https://img.shields.io/badge/Windows-passsing-blue.svg] !()[https://img.shields.io/badge/MacOS-passsing-yellow.svg] !()[https://img.shields.io/badge/Linux-passsing-green.svg]
+![](https://img.shields.io/badge/Windows-passsing-blue.svg) ![](https://img.shields.io/badge/MacOS-passsing-yellow.svg) ![](https://img.shields.io/badge/Linux-passsing-green.svg)
 
 Quickly create a simple webpack app
 
